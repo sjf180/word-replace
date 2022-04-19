@@ -61,9 +61,13 @@ public class Word2ReplaceApplication implements ApplicationRunner {
 											if (run.getText().contains(n)) {
 												node.getRange().replace(run.getText(), " ");
 												builder.moveTo(run);
+
 												BufferedImage bf = ImageIO.read(new File(dir + "\\pic\\" + s[j]));
-												builder.insertImage(dir + "\\pic\\" + s[j], RelativeHorizontalPosition.PAGE, 0, RelativeVerticalPosition.PAGE, 0, bf.getWidth(), bf.getHeight(), WrapType.INLINE);
+												int w = bf.getWidth() * 3 / 4;
+												int h = bf.getHeight() * 3 / 4;
+												builder.insertImage(dir + "\\pic\\" + s[j], RelativeHorizontalPosition.PAGE, 0, RelativeVerticalPosition.PAGE, 0, w, h, WrapType.INLINE);
 												bf.flush();
+
 												flag = true;
 											}
 										}
